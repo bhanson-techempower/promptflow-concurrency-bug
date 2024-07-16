@@ -1,0 +1,16 @@
+inputs:
+  name:
+    type: string
+    default: ""
+outputs:
+  greeting:
+    type: string
+    reference: ${say_hello.output}
+nodes:
+- name: say_hello
+  type: python
+  source:
+    type: code
+    path: say_hello.py
+  inputs:
+    name: ${inputs.name}

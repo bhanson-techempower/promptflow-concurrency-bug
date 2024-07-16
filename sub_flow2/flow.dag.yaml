@@ -1,0 +1,16 @@
+inputs:
+  name:
+    type: string
+    default: ""
+outputs:
+  greeting:
+    type: string
+    reference: ${say_howdi.output}
+nodes:
+- name: say_howdi
+  type: python
+  source:
+    type: code
+    path: say_howdi.py
+  inputs:
+    name: ${inputs.name}

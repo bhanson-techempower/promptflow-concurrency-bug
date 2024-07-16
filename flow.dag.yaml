@@ -1,0 +1,36 @@
+inputs:
+  name:
+    type: string
+    default: Linus
+outputs:
+  greeting1:
+    type: string
+    reference: ${run_sub_flow1.output}
+  greeting2:
+    type: string
+    reference: ${run_sub_flow2.output}
+  greeting3:
+    type: string
+    reference: ${run_sub_flow3.output}
+nodes:
+- name: run_sub_flow1
+  type: python
+  source:
+    type: code
+    path: run_sub_flow1.py
+  inputs:
+    name: ${inputs.name}
+- name: run_sub_flow2
+  type: python
+  source:
+    type: code
+    path: run_sub_flow2.py
+  inputs:
+    name: ${inputs.name}
+- name: run_sub_flow3
+  type: python
+  source:
+    type: code
+    path: run_sub_flow3.py
+  inputs:
+    name: ${inputs.name}
